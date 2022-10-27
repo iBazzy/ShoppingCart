@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listar Notebooks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button [routerLink]="['carrito']">Carrito</ion-button>
+ <ion-card *ngFor="let note of producto">
+   <ion-card-title>{{note.nombre | uppercase}}</ion-card-title>
+   <ion-img [src]="note.imagen" [routerLink]="['detalle',note.id]" ></ion-img>
+   <ion-card-content style="display: flex; justify-content: space-between;">
+    <ion-button [routerLink]="['eliminar',note.id]" color="danger">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['modificar', ]" >
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+
+ </ion-card>
+</ion-content>

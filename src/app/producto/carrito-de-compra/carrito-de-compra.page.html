@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito De Compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let p of productos">
+      <ion-card-header>
+        <ion-card-title style="font-family: 'Times New Roman', Times, serif; font-size: xx-large;">{{p.nombre}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row class="ion-align-items-center">
+          <ion-img [src]="p.imagen" ></ion-img>
+          <ion-col size="8">
+            <ion-label color="secondary">
+              <b color="danger">{{ p.precio | currency: 'CLP'}}</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+      <ion-card-content style="display: flex; justify-content: space-between;">
+        <ion-button [routerLink]="['detalle',p.id]" color="success">
+          <ion-icon name="reorder-four-outline"></ion-icon>
+        </ion-button>
+        <ion-button [routerLink]="['']" color="danger" >
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
